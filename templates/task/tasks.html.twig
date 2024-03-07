@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+<!-- Card Section -->
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <!-- Grid -->
+    <div class="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-6">
+      
+{% for task in tasks %}
+
+    <div class="p-4 md:p-5">
+      <div class="flex justify-between items-center">
+        <div>
+          <h3 class="group-hover:text-blue-600 font-semibold text-gray-800 dark:group-hover:text-gray-400 dark:text-gray-200">
+            {{task.title}}
+          </h3>
+          <p>{{task.content}}</p>
+          <p class="text-sm text-gray-500">
+            {{task.expiryDate | date('d/m/Y')}}
+          </p>
+          <p>{{task.statut}}</p>
+        </div>
+      </div>
+    </div>
+    
+{% endfor %}
+    </div>
+<!-- End Grid -->
+</div>
+<!-- End Card Section -->
+  {% endblock %}
